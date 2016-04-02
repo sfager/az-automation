@@ -8,7 +8,7 @@ Param(
 	$ResourceGroupName
 )
 
-# Connection Azure Account
+# Connect to Azure Account
 $Credential = Get-AutomationPSCredential -Name 'Automator'
 Add-AzureRMAccount -Credential $Credential
 
