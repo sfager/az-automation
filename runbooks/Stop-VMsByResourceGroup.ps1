@@ -4,17 +4,7 @@ Param (
 	$AzureResourceGroup
 )
 
-#The name of the Automation Credential Asset
-$CredentialAssetName = "Automator"
-
-#Get the credential with the above name from the Automation Asset store
-$Cred = Get-AutomationPSCredential -Name $CredentialAssetName
-if (!$Cred) {
-	Throw "Could not find an Automation Credential Asset named '${CredentialAssetName}'. Make sure you have created one in this Automation Account."
-}
-
-#Connect to Azure Account
-Add-AzureRmAccount -Credential $Cred
+.\Connect-AzureRM.ps1 -CredentialAssetName "Automator"
 
 Write-Output "Stopping VMs in '$($AzureResourceGroup)' resource group"
 	
